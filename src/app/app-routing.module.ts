@@ -8,10 +8,16 @@ const routes: Routes = [
       import('./modules/auth/auth.module').then((m) => m.AuthModule),
   },
   {
-    path: '',
+    path: 'asxsax',
     //canActivate: [AuthGuard],
     loadChildren: () =>
       import('./modules/layout/layout.module').then((m) => m.LayoutModule),
+  },
+  {
+    path: '',
+    //canActivate: [AuthGuard],
+    loadChildren: () =>
+      import('./modules/product-details/product-details.module').then((m) => m.ProductDetailsModule),
   },
   { path: '**', redirectTo: '' },
 ];

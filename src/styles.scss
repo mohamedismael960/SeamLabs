@@ -17,8 +17,13 @@ html, body { height: 100%;overflow-x: hidden; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 /* Importing Bootstrap SCSS file. */
-@import '~bootstrap/scss/bootstrap';
+@import  '~bootstrap/scss/bootstrap';
+
+
 @import './assets/general/checkbox.scss';
+@import './assets/general/customInput.scss';
+@import './assets/general/rates.scss';
+
 
 @media screen and (max-width: 430px) {
   .d-m-none{

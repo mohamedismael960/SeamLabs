@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSelectModule} from '@angular/material/select';
+import {MatInputModule} from '@angular/material/input';
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
@@ -14,7 +16,9 @@ import {MatSelectModule} from '@angular/material/select';
   exports:[
     MatBadgeModule,
     MatCheckboxModule,
-    MatSelectModule
+    MatSelectModule,
+    MatInputModule,
+    MatIconModule
   ]
 })
 export class SharedModule { }

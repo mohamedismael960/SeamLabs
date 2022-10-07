@@ -1,1 +1,49 @@
-<p>auth works!</p>
+<div class="row login">
+    <div class="col-md-6 d-m-none">
+        <img class="mainImage" src="assets/images/login.png" alt="">
+    </div>
+    <div class="col-md-6 col-sm-6 align-self-center justify-self-center m-auto d-flex justify-content-center " >
+        <div class="text-center submitSection">
+            <img class="youtopia" src="assets/images/Youtopia.png" alt="">
+
+            <!-- Email field -->
+            <div class="material_input_custom email_margin">
+                <div class="input-label text-left">Email</div>
+                <mat-form-field appearance="outline" class="w-100">
+                    <input type="email" matInput>
+                    <!-- <mat-error *ngIf="signInForm.get('email').hasError('required')"
+                        jhiTranslate="global.messages.validate.mobileNumber.required">
+                        Mobile number is required
+                    </mat-error>
+                    <mat-error *ngIf="signInForm.get('email').hasError('email')"
+                        jhiTranslate="global.messages.validate.mobileNumber.invalid">
+                        Please enter a valid mobile number
+                    </mat-error> -->
+                </mat-form-field>
+            </div>
+
+             <!-- Email field -->
+             <div class="material_input_custom">
+                <div class="input-label text-left">Password</div>
+                <mat-form-field appearance="outline" class="w-100">
+                    <input type="password" matInput>
+                    <!-- <mat-error *ngIf="signInForm.get('email').hasError('required')"
+                        jhiTranslate="global.messages.validate.mobileNumber.required">
+                        Mobile number is required
+                    </mat-error>
+                    <mat-error *ngIf="signInForm.get('email').hasError('email')"
+                        jhiTranslate="global.messages.validate.mobileNumber.invalid">
+                        Please enter a valid mobile number
+                    </mat-error> -->
+                </mat-form-field>
+            </div>
+
+            <!--forgetPassword-->
+            <div class="forgetPassword">Forgot your <span style="color: #6C63FFB0;">Password?</span></div>
+
+            <button class="loginButton">Login</button>
+        </div>
+
+        
+    </div>
+</div>

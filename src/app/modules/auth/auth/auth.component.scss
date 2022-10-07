@@ -1,0 +1,46 @@
+.login{
+    .mainImage{
+        width: 100%;
+        height: 100vh;
+    }
+    .youtopia{
+        margin-bottom: 5.125rem;
+    }
+    .email_margin{
+        margin-bottom: 2.313rem;
+    }
+    .submitSection{
+        width: 50%;
+        @media screen and (max-width: 768px) {
+            width: 90% !important;
+        }
+        @media screen and (max-width: 430px){
+            width: 85% !important;
+            margin-top: 10px !important;
+        }
+    }
+    .forgetPassword{
+        font-weight: 700;
+        font-size: 1rem;
+        color: #7A7A7A;
+        text-align: left;
+        cursor: pointer;
+        margin-left: 16px;
+    }
+    .loginButton{
+        background: #6C63FF;
+        border-radius: 65px;
+        font-weight: 700;
+        font-size: 24px;
+        text-align: center;
+        color: #FFFFFF;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 3.375rem;
+        border: none;
+        margin-top: 3.125rem;
+        cursor: pointer;
+    }
+}
