@@ -6,7 +6,7 @@
                 <img src="assets/images/logo.png" alt="not found">
         
                 <!--Register-->
-                <div class="item-text">Sell on Shopka</div>
+                <div class="item-text">Sell Shopka</div>
                 <div class="item-text-register" *ngIf="!authService.isLoggedIn">Register</div>
             </div>
         </div>
@@ -27,7 +27,7 @@
                 <button *ngIf="!authService.isLoggedIn" class="signIn" [routerLink]="['/auth']" >Sign in</button>
                 <button *ngIf="authService.isLoggedIn" (click)="authService.logout()" class="signIn" [routerLink]="['/auth']" >Log out</button>
                 <button class="cart" [matBadge]="countCart" matBadgeColor="accent">My cart</button>
-                <img width="40px" height="40px" style="margin-left: 16px;" src="assets/images/Edward Powlowski.png" alt="">
+                <img *ngIf="authService.isLoggedIn" width="40px" height="40px" style="margin-left: 16px;" src="assets/images/Edward Powlowski.png" alt="">
             </div>
         </div>
 </div>

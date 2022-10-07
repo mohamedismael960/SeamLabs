@@ -30,8 +30,7 @@ export class AuthService {
           console.log(data);
           
           localStorage.setItem("token" , "VYLTnsjHezoaREiJ9LGJ8rT62meCtctUuMnu42fIiWMPPI5DPkbdCZXHMfYd");
-          console.log("test");
-          
+          localStorage.removeItem('countCart');
           return true;
         }),
         catchError((error) => {
