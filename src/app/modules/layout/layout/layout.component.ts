@@ -3,6 +3,7 @@ import { Product } from '../../dashboard/models/product.interface';
 import { ProdutsService } from '../../dashboard/services/produts.service';
 import { fromEvent, Observable , Subscription } from 'rxjs';
 import { debounceTime, first } from 'rxjs/operators';
+import { AuthService } from '../../auth/services/auth-service.service';
 
 @Component({
   selector: 'app-layout',
@@ -25,7 +26,7 @@ export class LayoutComponent implements OnInit {
   allProduct$!:Observable<Product[]>;
 
   countCart:number = 0;
-  constructor(private produtsService:ProdutsService) {
+  constructor(private produtsService:ProdutsService,public authService: AuthService) {
     this.allProduct$ = this.produtsService.allProductsBehaviorSubject;
    }
 
@@ -34,6 +35,11 @@ export class LayoutComponent implements OnInit {
     if(count){
       this.countCart = parseInt(count);
     }
+  }
+
+  reset(){
+    this.seachKey = '';
+    this.searchProduct();
   }
 
   seachInput(){

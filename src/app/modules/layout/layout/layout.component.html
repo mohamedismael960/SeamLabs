@@ -7,7 +7,7 @@
         
                 <!--Register-->
                 <div class="item-text">Sell on Shopka</div>
-                <div class="item-text-register">Register</div>
+                <div class="item-text-register" *ngIf="!authService.isLoggedIn">Register</div>
             </div>
         </div>
         <div class="order-2 col-xl-7 col-lg-6 col-sm-12 mb-sm-25">
@@ -16,7 +16,7 @@
                 <div class="searchInput">
                     <span class="icon-search"></span>
                     <input type="text" #searchBox [(ngModel)]="seachKey">
-                    <span class="icon-close"></span>
+                    <span class="icon-close mt-1" (click)="reset()"></span>
                 </div>
                 <div class="consumer d-m-none">Consumer Electronics</div>
             </div>
@@ -24,12 +24,13 @@
         <div class="order-3 col-xl-2 col-lg-12 col-sm-12 mb-sm-25 mt-lg-20">
             <div class="d-flex justify-content-end align-items-center">
                 <!--sign in-->
-                <button class="signIn">Sign in</button>
+                <button *ngIf="!authService.isLoggedIn" class="signIn" [routerLink]="['/auth']" >Sign in</button>
+                <button *ngIf="authService.isLoggedIn" (click)="authService.logout()" class="signIn" [routerLink]="['/auth']" >Log out</button>
                 <button class="cart" [matBadge]="countCart" matBadgeColor="accent">My cart</button>
                 <img width="40px" height="40px" style="margin-left: 16px;" src="assets/images/Edward Powlowski.png" alt="">
             </div>
         </div>
-    </div>
+</div>
     
 </div>
 

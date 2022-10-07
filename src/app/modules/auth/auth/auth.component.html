@@ -1,4 +1,4 @@
-<div class="row login">
+<form class="row login" [formGroup]="loginForm" >
     <div class="col-md-6 d-m-none">
         <img class="mainImage" src="assets/images/login.png" alt="">
     </div>
@@ -10,7 +10,7 @@
             <div class="material_input_custom email_margin">
                 <div class="input-label text-left">Email</div>
                 <mat-form-field appearance="outline" class="w-100">
-                    <input type="email" matInput>
+                    <input type="email" matInput formControlName="email">
                     <!-- <mat-error *ngIf="signInForm.get('email').hasError('required')"
                         jhiTranslate="global.messages.validate.mobileNumber.required">
                         Mobile number is required
@@ -26,7 +26,7 @@
              <div class="material_input_custom">
                 <div class="input-label text-left">Password</div>
                 <mat-form-field appearance="outline" class="w-100">
-                    <input type="password" matInput>
+                    <input type="password" matInput formControlName="password">
                     <!-- <mat-error *ngIf="signInForm.get('email').hasError('required')"
                         jhiTranslate="global.messages.validate.mobileNumber.required">
                         Mobile number is required
@@ -41,9 +41,9 @@
             <!--forgetPassword-->
             <div class="forgetPassword">Forgot your <span style="color: #6C63FFB0;">Password?</span></div>
 
-            <button class="loginButton">Login</button>
+            <button [disabled]="loginForm.invalid" (click)="userLogin()" class="loginButton">Login</button>
         </div>
 
         
     </div>
-</div>
+</form>
