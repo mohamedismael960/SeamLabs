@@ -1,0 +1,150 @@
+@import '/src/assets/general/colors.scss';
+//layout
+.layout{
+    display: flex;
+    padding: 1.875rem 1rem;
+    justify-content: space-between;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background: #fff;
+    z-index: 99;
+    
+    //items
+    .item{
+        font-size: 1.25rem;
+        letter-spacing: 0.004em;
+        color: $gray-60;
+        @media screen and (max-width: 430px) {
+           padding-left: 0px !important;
+        }
+    }
+    .item-text{
+        padding-left: 2.375rem;;
+        font-weight: 500;
+        @extend .item;
+    }
+    .item-text-register{
+        padding-left: 2.0625rem;
+        font-weight: 400;
+        @extend .item;
+    }
+
+    //searchInputs
+    .searchInput{
+        position: relative;
+        width: 54%;
+        @media screen and (max-width: 430px) {
+            width: 100% !important;
+        }
+        input{
+            background-color: $gray-5;
+            border-radius: 99px;
+            height: 48px;
+            border: none;
+            color: $gray-100;
+            font-size: 1.25rem;
+            padding:0 45px;
+            outline: none;
+            width: 100%;
+        }
+        .icon-main{
+            position: absolute;
+            top: 15px;
+            
+        }
+        .icon-search{
+            @extend .icon-main;
+            left: 15px;
+            font-size: 1.1875rem;
+        }
+        .icon-close{
+            @extend .icon-main;
+            right: 15px;
+            font-size: 0.875rem;
+        }
+    }
+
+    .consumer{
+        color: $blue-70;
+        font-size: 1.25rem;
+        font-weight: 400;
+        letter-spacing: 0.0075em;
+        padding-left: 1.875rem;
+    }
+
+    .signIn{
+        white-space: nowrap;
+        padding: 0px 16px;
+        border: 1px solid $blue-30;
+        border-radius: 4px;       
+        font-weight: 700;
+        font-size: 1.25rem;
+        letter-spacing: 0.0075em;
+        color: $blue-70;
+        background-color: #fff;
+        margin-right: 2rem;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .cart{
+        white-space: nowrap;
+        background: #FFFFFF;
+        /* Shadow Blue / 4dp */
+        box-shadow: 0px 2px 4px rgba(27, 78, 163, 0.2), 0px 4px 8px rgba(41, 121, 255, 0.2);
+        border-radius: 4px;
+        font-size: 1.25rem;
+        padding: 0px 16px;
+        color: $blue-70;
+        font-weight: 700;
+        border: none;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .mb-sm-25{
+        @media screen and (max-width: 430px) {
+            padding-bottom: 25px !important;
+         } 
+    }
+    @media screen and (max-width: 430px) {
+        position: relative !important;
+        padding-top: 0px !important;
+        .order-2{
+            order: 3 !important;
+        }
+        .order-3{
+            order: 2 !important;
+            margin-top: 108px !important;
+        }
+        .fixedMobile{
+            position: fixed;
+            background: #fff;
+            z-index: 99;
+            padding-top: 20px !important;
+         }
+     }  
+     @media screen and (max-width: 1024px) {
+        .mt-lg-20{
+            margin-top: 20px !important;
+        }
+    }
+}
+
+.addPadding{
+    padding-top: 120px;
+    @media screen and (max-width: 1024px) {
+        padding-top: 190px !important;
+    }
+    @media screen and (max-width: 768px) {
+        padding-top: 217px !important;
+    }
+    
+    @media screen and (max-width: 430px) {
+        padding-top: 0px !important;
+    }
+}
+
