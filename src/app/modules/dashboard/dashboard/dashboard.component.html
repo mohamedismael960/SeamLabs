@@ -1,4 +1,4 @@
-<div class="row justify-content-center g-0">
+<form class="row justify-content-center g-0">
     <div class="col-md-4 col-sm-12">
         <div class="row  justify-content-end">
             <div class="col-xl-8 col-lg-11">
@@ -10,15 +10,15 @@
                               Category
                             </mat-panel-title>
                           </mat-expansion-panel-header>
-                          <div class="filters">
-                            <mat-checkbox class="example-margin">Electronics</mat-checkbox>
-                            <mat-checkbox class="example-margin">Business & Industrial</mat-checkbox>
-                            <mat-checkbox class="example-margin">Cell Phones & Smartphones</mat-checkbox>
-                            <mat-checkbox class="example-margin">Cell Phones & Smartphones</mat-checkbox>
-                            <mat-checkbox class="example-margin">Cell Phones & Smartphones</mat-checkbox>
-                            <mat-checkbox class="example-margin">Expiring Soon</mat-checkbox>
-                            <mat-checkbox class="example-margin">Most Rated</mat-checkbox>
-                          </div>
+                          <form class="filters" [formGroup]="categoryFilter" >
+                            <mat-checkbox formControlName="electronics" class="example-margin">Electronics</mat-checkbox>
+                            <mat-checkbox formControlName="cellPhones" class="example-margin">Cell Phones & Smartphones</mat-checkbox>
+                            <mat-checkbox formControlName="any1"  class="example-margin">Business & Industrial</mat-checkbox>
+                            <mat-checkbox formControlName="any2"  class="example-margin">Any Search</mat-checkbox>
+                            <mat-checkbox formControlName="any3"  class="example-margin">Any Search</mat-checkbox>
+                            <mat-checkbox formControlName="any4"  class="example-margin">Expiring Soon</mat-checkbox>
+                            <mat-checkbox formControlName="any5"  class="example-margin">Most Rated</mat-checkbox>
+                          </form>
                         </mat-expansion-panel>
                       </mat-accordion>
                 </div>
@@ -29,237 +29,52 @@
                             Expanded Filters
                         </mat-panel-title>
                       </mat-expansion-panel-header>
-                      <div class="filters">
-                        <mat-checkbox class="example-margin">Price 100 → 300</mat-checkbox>
-                        <mat-checkbox class="example-margin">Price 200 → 400</mat-checkbox>
-                        <mat-checkbox class="example-margin">Price 300 → 500</mat-checkbox>
-                        <mat-checkbox class="example-margin">Price 400 → 600</mat-checkbox>
-                        <mat-checkbox class="example-margin">Price 500 → 700</mat-checkbox>
-                        <mat-checkbox class="example-margin">Price 600 → 800</mat-checkbox>
-                      </div>
+                      <form class="filters" [formGroup]="priceFilter">
+                        <mat-checkbox formControlName="price100To250" class="example-margin">Price 100 → 250</mat-checkbox>
+                        <mat-checkbox formControlName="price250To400" class="example-margin">Price 250 → 400</mat-checkbox>
+                        <mat-checkbox [disabled]="true" class="example-margin">Price 300 → 500</mat-checkbox>
+                        <mat-checkbox [disabled]="true" class="example-margin">Price 400 → 600</mat-checkbox>
+                        <mat-checkbox [disabled]="true" class="example-margin">Price 500 → 700</mat-checkbox>
+                        <mat-checkbox [disabled]="true" class="example-margin">Price 600 → 800</mat-checkbox>
+                      </form>
                     </mat-expansion-panel>
                   </mat-accordion>
             </div>
         </div>
     </div>
     <div class="col-lg-8 col-md-7 col-sm-12">
-        <div class="products">
+        <form class="products" [formGroup]="priceFilter">
             <mat-form-field appearance="outline">
                 <mat-label>SORT BY</mat-label>
-                <mat-select>
-                    <mat-option [value]="">Default</mat-option>
+                <mat-select formControlName="lowHighPrice">
                   <mat-option value="low">Low Price</mat-option>
                   <mat-option value="high">High Price</mat-option>
                 </mat-select>
             </mat-form-field>
             <div class="list">
-                <div class="product">
-                    <img src="https://5.imimg.com/data5/IW/KD/MY-18371619/sega-shoose-500x500.jpg" alt="">
+                <div [routerLink]="['/product-details',product.id]" class="product" *ngFor="let product of (allProduct$ | async) | filterProducts:priceFilter.value">
+                    <img [src]="product.image" alt="">
                     <div class="text">
-                        Vintage Typewriter to post awesome stories about UI design and webdev.
+                        {{product.title}}
                     </div>
                     <div class="price">
-                        $49.50
+                        ${{product.price}}
                     </div>
                     <div class="desc">
-                        Eligible for Shipping To Mars or somewhere else
+                        {{product.desc}}
                     </div>
                     <div class="d-flex justify-content-between align-items-center ">
                         <div class="rates">
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                        </div>
-                        <button class="watch">Watch</button>
-                    </div>
-                </div>
-
-                <div class="product">
-                    <img src="https://5.imimg.com/data5/IW/KD/MY-18371619/sega-shoose-500x500.jpg" alt="">
-                    <div class="text">
-                        Vintage Typewriter to post awesome stories about UI design and webdev.
-                    </div>
-                    <div class="price">
-                        $49.50
-                    </div>
-                    <div class="desc">
-                        Eligible for Shipping To Mars or somewhere else
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center ">
-                        <div class="rates">
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                        </div>
-                        <button class="watch">Watch</button>
-                    </div>
-                </div>
-
-                <div class="product">
-                    <img src="https://5.imimg.com/data5/IW/KD/MY-18371619/sega-shoose-500x500.jpg" alt="">
-                    <div class="text">
-                        Vintage Typewriter to post awesome stories about UI design and webdev.
-                    </div>
-                    <div class="price">
-                        $49.50
-                    </div>
-                    <div class="desc">
-                        Eligible for Shipping To Mars or somewhere else
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center ">
-                        <div class="rates">
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                        </div>
-                        <button class="watch">Watch</button>
-                    </div>
-                </div>
-
-                <div class="product">
-                    <img src="https://5.imimg.com/data5/IW/KD/MY-18371619/sega-shoose-500x500.jpg" alt="">
-                    <div class="text">
-                        Vintage Typewriter to post awesome stories about UI design and webdev.
-                    </div>
-                    <div class="price">
-                        $49.50
-                    </div>
-                    <div class="desc">
-                        Eligible for Shipping To Mars or somewhere else
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center ">
-                        <div class="rates">
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                        </div>
-                        <button class="watch">Watch</button>
-                    </div>
-                </div>
-
-                <div class="product">
-                    <img src="https://5.imimg.com/data5/IW/KD/MY-18371619/sega-shoose-500x500.jpg" alt="">
-                    <div class="text">
-                        Vintage Typewriter to post awesome stories about UI design and webdev.
-                    </div>
-                    <div class="price">
-                        $49.50
-                    </div>
-                    <div class="desc">
-                        Eligible for Shipping To Mars or somewhere else
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center ">
-                        <div class="rates">
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                        </div>
-                        <button class="watch">Watch</button>
-                    </div>
-                </div>
-
-                <div class="product">
-                    <img src="https://5.imimg.com/data5/IW/KD/MY-18371619/sega-shoose-500x500.jpg" alt="">
-                    <div class="text">
-                        Vintage Typewriter to post awesome stories about UI design and webdev.
-                    </div>
-                    <div class="price">
-                        $49.50
-                    </div>
-                    <div class="desc">
-                        Eligible for Shipping To Mars or somewhere else
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center ">
-                        <div class="rates">
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                        </div>
-                        <button class="watch">Watch</button>
-                    </div>
-                </div>
-
-                <div class="product">
-                    <img src="https://5.imimg.com/data5/IW/KD/MY-18371619/sega-shoose-500x500.jpg" alt="">
-                    <div class="text">
-                        Vintage Typewriter to post awesome stories about UI design and webdev.
-                    </div>
-                    <div class="price">
-                        $49.50
-                    </div>
-                    <div class="desc">
-                        Eligible for Shipping To Mars or somewhere else
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center ">
-                        <div class="rates">
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                        </div>
-                        <button class="watch">Watch</button>
-                    </div>
-                </div>
-
-                <div class="product">
-                    <img src="https://5.imimg.com/data5/IW/KD/MY-18371619/sega-shoose-500x500.jpg" alt="">
-                    <div class="text">
-                        Vintage Typewriter to post awesome stories about UI design and webdev.
-                    </div>
-                    <div class="price">
-                        $49.50
-                    </div>
-                    <div class="desc">
-                        Eligible for Shipping To Mars or somewhere else
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center ">
-                        <div class="rates">
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                        </div>
-                        <button class="watch">Watch</button>
-                    </div>
-                </div>
-
-                <div class="product">
-                    <img src="https://5.imimg.com/data5/IW/KD/MY-18371619/sega-shoose-500x500.jpg" alt="">
-                    <div class="text">
-                        Vintage Typewriter to post awesome stories about UI design and webdev.
-                    </div>
-                    <div class="price">
-                        $49.50
-                    </div>
-                    <div class="desc">
-                        Eligible for Shipping To Mars or somewhere else
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center ">
-                        <div class="rates">
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star" [class.checked]="product.star >= 1"></span>
+                            <span class="fa fa-star" [class.checked]="product.star >= 2"></span>
+                            <span class="fa fa-star" [class.checked]="product.star >= 3"></span>
+                            <span class="fa fa-star" [class.checked]="product.star >= 5"></span>
+                            <span class="fa fa-star" [class.checked]="product.star >= 5"></span>
                         </div>
                         <button class="watch">Watch</button>
                     </div>
                 </div>
             </div>
-        </div>
+          </form>
     </div>
-</div>
+  </form>

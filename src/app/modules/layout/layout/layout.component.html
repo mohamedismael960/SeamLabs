@@ -15,7 +15,7 @@
                 <!--search input-->
                 <div class="searchInput">
                     <span class="icon-search"></span>
-                    <input type="text">
+                    <input type="text" #searchBox [(ngModel)]="seachKey">
                     <span class="icon-close"></span>
                 </div>
                 <div class="consumer d-m-none">Consumer Electronics</div>
@@ -25,7 +25,7 @@
             <div class="d-flex justify-content-end align-items-center">
                 <!--sign in-->
                 <button class="signIn">Sign in</button>
-                <button class="cart" matBadge="5" matBadgeColor="accent">My cart</button>
+                <button class="cart" [matBadge]="countCart" matBadgeColor="accent">My cart</button>
                 <img width="40px" height="40px" style="margin-left: 16px;" src="assets/images/Edward Powlowski.png" alt="">
             </div>
         </div>

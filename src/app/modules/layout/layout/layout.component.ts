@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Product } from '../../dashboard/models/product.interface';
+import { ProdutsService } from '../../dashboard/services/produts.service';
+import { fromEvent, Observable , Subscription } from 'rxjs';
+import { debounceTime, first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-layout',
@@ -6,10 +10,42 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./layout.component.scss']
 })
 export class LayoutComponent implements OnInit {
+  @ViewChild('searchBox' , {static:true})
+  private searchBox!: ElementRef;
 
-  constructor() { }
+  @ViewChild('searchBox') set content(content: ElementRef) {
+    if(content) { 
+        this.searchBox = content;
+        this.seachInput();
+    }
+ }
+
+ seachKey!:string;
+
+  allProduct$!:Observable<Product[]>;
+
+  countCart:number = 0;
+  constructor(private produtsService:ProdutsService) {
+    this.allProduct$ = this.produtsService.allProductsBehaviorSubject;
+   }
 
   ngOnInit(): void {
+    let count:any = localStorage.getItem('countCart');
+    if(count){
+      this.countCart = parseInt(count);
+    }
+  }
+
+  seachInput(){
+      const keyup$ = fromEvent(this.searchBox.nativeElement, 'keyup');
+      keyup$.pipe(
+        debounceTime(500)
+      )
+      .subscribe(()=>this.searchProduct());
+  }
+
+  searchProduct(){
+    this.produtsService.getAllProducts({q:this.seachKey}).subscribe();
   }
 
 }

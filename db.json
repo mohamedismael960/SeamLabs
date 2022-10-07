@@ -1,0 +1,58 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "Automatic washing machine",
+      "price":400,
+      "desc":"hypertext publication collaboratively edited and managed by its own audience, using a web browser.",
+      "star":5,
+      "type":"electronics",
+      "image":"https://thumbs.gfycat.com/SingleClearAmericanwarmblood-size_restricted.gif"
+    },
+    {
+      "id": 2,
+      "title": "Iphone 11",
+      "price":100,
+      "desc":"hypertext publication collaboratively edited and managed by its own audience, using a web browser.",
+      "star":1,
+      "type":"cellPhones",
+      "image":"https://media0.giphy.com/media/KFi3MFDXXEmxzAh5Gw/giphy.gif"
+    },
+    {
+      "id": 3,
+      "title": "Unionaire Gas Cooker",
+      "price":150,
+      "desc":"hypertext publication collaboratively edited and managed by its own audience, using a web browser.",
+      "star":2,
+      "type":"electronics",
+      "image":"http://autoflame.co.in/assets/images/allmodelgif-1.gif"
+    },
+    {
+      "id": 4,
+      "title": "Nokia N55",
+      "price":200,
+      "desc":"hypertext publication collaboratively edited and managed by its own audience, using a web browser.",
+      "star":3,
+      "type":"cellPhones",
+      "image":"https://e7.pngegg.com/pngimages/740/605/png-clipart-nokia-e72-nokia-e71-nokia-n96-nokia-e52-e55-smartphone-gadget-electronics-thumbnail.png"
+    },
+    {
+      "id": 5,
+      "title": "Sharp Fridge",
+      "price":250,
+      "desc":"hypertext publication collaboratively edited and managed by its own audience, using a web browser.",
+      "star":4,
+      "type":"electronics",
+      "image":"https://img.favpng.com/19/2/25/refrigerator-sharp-corporation-home-appliance-refrigeration-icemaker-png-favpng-H4VdP0RamUzE9zwLJs3jrPdfV.jpg"
+    },
+    {
+      "id": 6,
+      "title": "Samsung Galaxy",
+      "price":300,
+      "desc":"hypertext publication collaboratively edited and managed by its own audience, using a web browser.",
+      "star":5,
+      "type":"cellPhones",
+      "image":"https://www.kindpng.com/picc/m/25-257906_samsung-galaxy-s4-png-transparent-background-png-download.png"
+    }
+  ]
+}

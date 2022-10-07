@@ -1,11 +1,11 @@
 <div class="row details">
     <div class="col-md-6 d-m-none">
        <div class="sectionImage">
-        <div class="d-flex back">
+        <div class="d-flex back" [routerLink]="'/'">
             <mat-icon class="icon">keyboard_backspace</mat-icon>
             <div class="mx-3 text">back to list</div>
         </div>
-        <img class="mainImage" src="assets/images/shetos.png" alt="">
+        <img class="mainImage" [src]="product?.image" alt="">
        </div>
     </div>
     <div class="col-md-6 col-sm-6" >
@@ -14,10 +14,10 @@
                 HOTSALE
             </div>
             <div class="head">
-                Whiskas® Dry Adult Dewasa 7+, Cat food Rasa Mackerel
+                {{product?.title}}
             </div>
             <div class="d-flex align-items-center gap-4 ">
-                <div class="name">CAT FOOD</div>
+                <div class="name">{{product?.type}}</div>
                 <div>|</div>
                 <div class="rates">
                     <span class="fa fa-star checked"></span>
@@ -27,7 +27,7 @@
                     <span class="fa fa-star"></span>
                 </div>
                 <div>|</div>
-                <div class="review">4.9 (2130 reviews)</div>
+                <div class="review">{{product?.rate}} (2130 reviews)</div>
             </div>
 
             <div class="description">
@@ -35,7 +35,7 @@
                     Description:
                 </div>
                 <ul>
-                    <li>Makanan yang lengkap dan seimbang, dengan 41 nutrisi penting.
+                    <li>{{product?.desc}}
 
                     </li>
                     <li>
@@ -50,13 +50,13 @@
                 </ul>
                 <div class="d-flex gap-4">
                     <div class="type selected">
-                        <img src="assets/images/shetos.png" alt="">
+                        <img [src]="product?.image" alt="">
                     </div>
                     <div class="type">
-                        <img src="assets/images/shetos.png" alt="">
+                        <img [src]="product?.image" alt="">
                     </div>
                     <div class="type">
-                        <img src="assets/images/shetos.png" alt="">
+                        <img [src]="product?.image" alt="">
                     </div>
                 </div>
 
@@ -101,22 +101,22 @@
         <div class="quantity">
             <div class="d-flex justify-content-between align-items-center w-100 ">
                 <div class="d-flex align-items-center gap-4 d-m-none">
-                    <img src="assets/images/shetos.png" alt="">
+                    <img [src]="product?.image" alt="">
                     <div class="headName">
-                        <div class="name">Whiskas® Dry Adult Dewasa 7+, Cat food Rasa Mackerel</div>
-                        <div class="desc">CAT FOOD</div>
+                        <div class="name">{{product?.title}}</div>
+                        <div class="desc">{{product?.type}}</div>
                     </div>
                 </div>
                 <div class="d-flex justify-content-between  ml-auto quan gap-5">
                     <div class="d-flex gap-4 align-items-center mx-2">
                        <div class="name"> Qty:</div>
-                       <img  src="assets/images/minus-square.png" alt="">
+                       <img  src="assets/images/minus-square.png" alt="" (click)="decrease()">
                        <div class="num">
-                        1
+                        {{countProduct}}
                        </div>
-                       <img  src="assets/images/plus-square.png" alt="">
+                       <img  src="assets/images/plus-square.png" alt="" (click)="increase()">
                     </div>
-                    <button class="addCard">ADD TO CARD</button>
+                    <button class="addCard" (click)="addToCart()">ADD TO CARD</button>
                 </div>
             </div>
         </div>
